@@ -13,7 +13,6 @@ val viewModelModule = module {
     viewModel { MainViewModel(get()) }
 }
 
-
 class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
 
 
@@ -23,8 +22,10 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
 
     var page = MutableLiveData(0)
 
-    val ad = liveData {
-        emit(mainRepository.getAd(52354))
+    val ad = page.switchMap { _ ->
+        liveData {
+            emit(mainRepository.getAd(52354))
+        }
     }
 
     val stories = liveData {

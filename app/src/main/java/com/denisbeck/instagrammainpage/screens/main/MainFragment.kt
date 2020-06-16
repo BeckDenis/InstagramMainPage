@@ -7,12 +7,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.denisbeck.instagrammainpage.R
 import com.denisbeck.instagrammainpage.models.Posts
+import com.denisbeck.instagrammainpage.models.Stories
 import com.denisbeck.instagrammainpage.networking.Status
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import com.xwray.groupie.Item
+import com.xwray.groupie.Section
 import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.item_post.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -27,20 +27,25 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = GroupAdapter<GroupieViewHolder>()
+        adapter = GroupAdapter<GroupieViewHolder>().apply {
+            add(EmptyItem())
+            add(FooterItem())
+        }
         recycler_view.adapter = adapter
 
         viewModel.ad.observe(viewLifecycleOwner, Observer {
-            Log.d(TAG, "onViewCreated: ${it.data}")
         })
-        
+
         viewModel.stories.observe(viewLifecycleOwner, Observer {
-            Log.d(TAG, "onViewCreated: ${it.data}")
+            it.data?.let { stories ->
+                updateStories(stories)
+            }
+
         })
 
         viewModel.posts.observe(viewLifecycleOwner, Observer {
             it.data?.let { movies ->
-                updateRecycler(movies)
+                updatePosts(movies)
             }
         })
 
@@ -50,39 +55,22 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 get() = viewModel.posts.value?.status == Status.LOADING
 
             override fun loadMore() {
+                Log.d(TAG, "loadMore: called")
                 viewModel.updatePages()
             }
         })
     }
 
-    private fun updateRecycler(_posts: Posts) {
-        val posts = _posts.results.map { PostItem(text = it.title) }
-        adapter.addAll(posts)
+    private fun updateStories(stories: Stories) {
+        Log.d(TAG, "updateStories: called")
+        adapter.add(1, StoriesItem(stories))
     }
 
-    class HeaderItem(private val text: String) : Item<GroupieViewHolder>() {
-
-        override fun getLayout() = R.layout.item_post
-
-        override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-            viewHolder.itemView.item_post_text.text = text
-        }
+    private fun updatePosts(_posts: Posts) {
+        Log.d(TAG, "updatePosts: called")
+        val posts = Section(_posts.results.map { PostItem(text = it.title) })
+        adapter.add(adapter.groupCount - 1, posts)
     }
 
-    class PostItem(private val text: String) : Item<GroupieViewHolder>() {
 
-        override fun getLayout() = R.layout.item_post
-
-        override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-            viewHolder.itemView.item_post_text.text = text
-        }
-    }
-
-    class FooterItem() : Item<GroupieViewHolder>() {
-
-        override fun getLayout() = R.layout.progress_bar
-
-        override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        }
-    }
 }
