@@ -24,12 +24,12 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
 
     val ad = page.switchMap { _ ->
         liveData {
-            emit(mainRepository.getAd(52354))
+            emit(mainRepository.getAd(429617))
         }
     }
 
     val stories = liveData {
-        emit(mainRepository.getStories(52354))
+        emit(mainRepository.getStories(429617))
     }
 
     val posts = page.switchMap { _ ->
