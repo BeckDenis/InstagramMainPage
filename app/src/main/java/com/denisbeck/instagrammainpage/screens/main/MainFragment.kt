@@ -72,8 +72,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun updatePosts(_posts: Posts) {
         Log.d(TAG, "updatePosts: called")
-        val posts = Section(_posts.results.map { PostItem(text = it.title) })
+        val posts = Section(_posts.results.map { PostItem(it) })
         adapter.add(adapter.groupCount - 1, posts)
     }
-    
+
 }

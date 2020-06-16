@@ -23,7 +23,7 @@
         <ImageView
             android:layout_width="17dp"
             android:layout_height="17dp"
-            android:src="@drawable/add_story"
+            android:src="@drawable/ic_add_story"
             android:layout_gravity="bottom|end"
             android:layout_margin="4dp" />
     </FrameLayout>
