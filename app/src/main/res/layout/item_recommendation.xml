@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="150dp"
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="2dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_recommendation_bg"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_recommendation_image"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:civ_border_width="1px"
+            app:civ_border_color="@color/colorDivider"
+            tools:src="@drawable/portrait_placeholder"/>
+
+        <TextView
+            android:id="@+id/item_recommendation_name"
+            tools:text="Connect Contact"
+            android:maxLines="1"
+            android:textAppearance="@style/large_text"
+            style="@style/item_recommendation_text" />
+
+        <TextView
+            android:id="@+id/item_recommendation_caption"
+            style="@style/item_recommendation_text"
+            android:lines="2"
+            android:text="@string/recommended"
+            android:textAppearance="@style/small_text" />
+
+        <Button
+            android:id="@+id/item_recommendation_button"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textAppearance="@style/large_text"
+            android:textColor="@color/colorBackground"
+            android:text="@string/follow"
+            android:layout_marginBottom="@dimen/item_recommendation_padding"
+            android:layout_marginStart="@dimen/item_recommendation_padding"
+            android:layout_marginEnd="@dimen/item_recommendation_padding"
+            android:background="@drawable/button_blue_bg" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/item_recommendation_close"
+        android:padding="8dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_close"
+        android:layout_gravity="end|top"
+        android:contentDescription="@string/close" />
+
+</FrameLayout>

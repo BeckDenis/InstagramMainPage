@@ -83,7 +83,7 @@
     <style name="post_user_image">
         <item name="android:layout_width">@dimen/post_user_image_size</item>
         <item name="android:layout_height">@dimen/post_user_image_size</item>
-        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginStart">12dp</item>
     </style>
 
     <style name="post_user_name">
@@ -113,9 +113,19 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxLines">1</item>
         <item name="android:layout_marginTop">1dp</item>
-        <item name="android:paddingStart">12dp</item>
-        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingStart">@dimen/padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/padding_horizontal</item>
         <item name="android:textAppearance">@style/large_text</item>
+    </style>
+
+    <style name="item_recommendation_text">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/item_recommendation_padding</item>
+        <item name="android:paddingEnd">@dimen/item_recommendation_padding</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
 </resources>

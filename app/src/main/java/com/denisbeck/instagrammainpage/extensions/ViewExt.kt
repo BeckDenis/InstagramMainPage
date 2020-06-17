@@ -6,11 +6,19 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.denisbeck.instagrammainpage.R
 import com.denisbeck.instagrammainpage.utils.*
+
+// Image View
+
+fun ImageView.insertDrawable(ref: Int) {
+    Glide.with(context).load(ref).into(this)
+}
 
 fun ImageView.insertImageW185(posterId: String?) {
     Glide.with(context).load("https://image.tmdb.org/t/p/w185$posterId").into(this)
@@ -20,11 +28,15 @@ fun ImageView.insertImageW500(posterId: String?) {
     Glide.with(context).load("https://image.tmdb.org/t/p/w500$posterId").into(this)
 }
 
-fun ImageView.insertImageOriginal(posterId: String?) {
-    Glide.with(context)
-        .load("https://image.tmdb.org/t/p/original$posterId")
-        .into(this)
+fun ImageView.insertImageOrDrawable(image: String?) {
+    if (image.isNullOrBlank()) {
+        this.insertDrawable(R.drawable.portrait_placeholder)
+    } else {
+        this.insertImageW185(image)
+    }
 }
+
+// Text View
 
 fun TextView.caption(_name: String? = null, _overview: String? = null) {
     fun span(name: String, overview: String) = SpannableString("$name $overview").apply {
@@ -95,6 +107,20 @@ fun TextView.liked(context: Context) {
         }
     }
 
+}
+
+// Button
+
+fun Button.changeState() {
+    if (this.text == context.getString(R.string.follow)) {
+        background = ContextCompat.getDrawable(context, R.drawable.button_white_bg)
+        text = context.getString(R.string.following)
+        setTextColor(ContextCompat.getColor(context, R.color.colorBlue))
+    } else {
+        background = ContextCompat.getDrawable(context, R.drawable.button_blue_bg)
+        text = context.getString(R.string.follow)
+        setTextColor(ContextCompat.getColor(context, R.color.colorBackground))
+    }
 }
 
 

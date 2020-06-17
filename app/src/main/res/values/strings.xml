@@ -20,4 +20,10 @@
     <string name="sponsored">Sponsored</string>
     <string name="caption">Kotlin is better than Java! join us!</string>
     <string name="learn_more">Learn More</string>
+    <string name="see_all">See All</string>
+    <string name="suggested_for_you">Suggested for You</string>
+    <string name="close">close</string>
+    <string name="recommended">Recommended</string>
+    <string name="follow">Follow</string>
+    <string name="following">Following</string>
 </resources>

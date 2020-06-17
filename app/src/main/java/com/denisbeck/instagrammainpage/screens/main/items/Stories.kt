@@ -1,8 +1,9 @@
 package com.denisbeck.instagrammainpage.screens.main.items
 
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.denisbeck.instagrammainpage.R
+import com.denisbeck.instagrammainpage.extensions.insertDrawable
+import com.denisbeck.instagrammainpage.extensions.insertImageOrDrawable
 import com.denisbeck.instagrammainpage.extensions.insertImageW185
 import com.denisbeck.instagrammainpage.models.Stories
 import com.denisbeck.instagrammainpage.models.Story
@@ -34,14 +35,7 @@ class StoryItem(private val story: Story) : Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.run {
             item_story_text.text = story.name
-            item_story_image.run {
-                if (story.profile_path.isNullOrBlank()) {
-                    val image = ContextCompat.getDrawable(context, R.drawable.portrait_placeholder)
-                    setImageDrawable(image)
-                } else {
-                    insertImageW185(story.profile_path)
-                }
-            }
+            item_story_image.insertImageOrDrawable(story.profile_path)
         }
     }
 
@@ -53,14 +47,7 @@ class YourStoryItem(private val story: Story) : Item<GroupieViewHolder>() {
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.run {
-            item_story_image.run {
-                if (story.profile_path.isNullOrBlank()) {
-                    val image = ContextCompat.getDrawable(context, R.drawable.portrait_placeholder)
-                    setImageDrawable(image)
-                } else {
-                    insertImageW185(story.profile_path)
-                }
-            }
+            item_story_image.insertImageOrDrawable(story.profile_path)
         }
     }
 

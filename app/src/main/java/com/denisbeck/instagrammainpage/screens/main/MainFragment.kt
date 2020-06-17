@@ -12,6 +12,7 @@ import com.denisbeck.instagrammainpage.networking.Status
 import com.denisbeck.instagrammainpage.screens.main.items.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+import com.xwray.groupie.Item
 import com.xwray.groupie.Section
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -66,12 +67,20 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun updatePosts(_posts: Posts) {
-        val posts = Section(_posts.results.map { post ->
-            PostItem(post)
-        })
+        val posts = Section(_posts.results.map { post -> PostItem(post) })
         val position = (10 until posts.itemCount).shuffled().first()
-        posts.add(position, AdItem())
+        posts.add(position, randomItemView())
         adapter.add(adapter.groupCount - 1, posts)
+    }
+
+    private fun randomItemView() : Item<GroupieViewHolder> {
+        return if ((0..1).shuffled().first() == 1) {
+            AdItem()
+        } else {
+            viewModel.stories.value?.data?.let { stories ->
+                RecommendationsItem(stories)
+            } ?: AdItem()
+        }
     }
 
 }

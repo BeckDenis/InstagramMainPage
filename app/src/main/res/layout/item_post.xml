@@ -67,12 +67,11 @@
             android:background="@color/colorBackground"
             android:drawableEnd="@drawable/ic_arrow_right"
             android:gravity="center_vertical"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
+            android:paddingStart="@dimen/padding_horizontal"
+            android:paddingEnd="@dimen/padding_horizontal"
             android:text="@string/learn_more"
             android:textAppearance="@style/largest_text"
-            android:textColor="@color/colorBlue"
-            android:textStyle="bold" />
+            android:textColor="@color/colorBlue" />
 
     </FrameLayout>
 

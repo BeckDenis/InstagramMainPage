@@ -1,7 +1,6 @@
 package com.denisbeck.instagrammainpage.screens.main.items
 
 import android.view.View
-import androidx.core.content.ContextCompat
 import com.denisbeck.instagrammainpage.R
 import com.denisbeck.instagrammainpage.extensions.*
 import com.denisbeck.instagrammainpage.models.Post
@@ -35,18 +34,19 @@ class AdItem : Item<GroupieViewHolder>() {
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.run {
-            item_post_image.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ad))
-            item_post_user_image
-                .setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ad_logo))
+            item_post_image.insertDrawable(R.drawable.ad)
+            item_post_user_image.insertDrawable(R.drawable.ad_logo)
             item_post_user_name.text = context.getString(R.string.kotlin)
             item_post_user_location.text = context.getString(R.string.sponsored)
-            item_post_caption
-                .caption(context.getString(R.string.kotlin), context.getString(R.string.caption))
             item_post_comment_text.caption()
             item_post_show_all_comments.comments()
             item_post_date.text = context.getString(R.string.date)
             item_post_liked.liked(context)
             item_post_menu.visibility = View.VISIBLE
+            item_post_caption.caption(
+                context.getString(R.string.kotlin),
+                context.getString(R.string.caption)
+            )
         }
     }
 

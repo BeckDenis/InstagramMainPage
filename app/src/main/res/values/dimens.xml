@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="post_user_image_size">30dp</dimen>
+    <dimen name="padding_horizontal">12dp</dimen>
+    <dimen name="item_recommendation_padding">8dp</dimen>
 </resources>
