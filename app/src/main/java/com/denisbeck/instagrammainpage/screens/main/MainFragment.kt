@@ -69,7 +69,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun updatePosts(_posts: Posts) {
-        val posts = Section(_posts.results.map { PostItem(it) })
+        val posts = Section(_posts.results.map { post ->
+            PostItem(post)
+        })
         adapter.add(adapter.groupCount - 1, posts)
     }
 

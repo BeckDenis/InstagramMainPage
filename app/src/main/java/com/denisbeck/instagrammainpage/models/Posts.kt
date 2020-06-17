@@ -1,5 +1,7 @@
 package com.denisbeck.instagrammainpage.models
 
+import java.util.*
+
 data class Posts(val results: List<Post>)
 
 data class Post(
@@ -12,4 +14,7 @@ data class Post(
     val vote_count: Int,
     val runtime: Int,
     val budget: Int
-)
+) {
+    val name: String
+        get() = title.replace(" ", "_").toLowerCase(locale = Locale.getDefault())
+}

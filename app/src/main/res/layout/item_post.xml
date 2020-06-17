@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -48,7 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        tools:src="@drawable/ic_launcher_background" />
+        tools:src="@drawable/ic_launcher_background"
+        android:contentDescription="@string/post_image" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,4 +90,36 @@
             android:src="@drawable/ic_collect" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_post_liked"
+        style="@style/post_comment"
+        android:textColor="@color/colorBlack"
+        tools:text="Liked by Ptuxerman and 50 others" />
+
+    <TextView
+        android:id="@+id/item_post_caption"
+        style="@style/post_comment"
+        android:textColor="@color/colorBlack"
+        tools:text="vadimalesya_key I like this film!" />
+
+    <TextView
+        android:id="@+id/item_post_show_all_comments"
+        style="@style/post_comment"
+        android:textColor="@color/grayText"
+        tools:text="View all 5 comments" />
+
+    <TextView
+        android:id="@+id/item_post_comment_text"
+        style="@style/post_comment"
+        android:textColor="@color/colorBlack"
+        tools:text="thaland I too!" />
+
+    <TextView
+        android:id="@+id/item_post_date"
+        style="@style/post_comment"
+        android:textAppearance="@style/smallest_text"
+        android:textColor="@color/grayText"
+        tools:text="2 days ago" />
+
 </LinearLayout>
