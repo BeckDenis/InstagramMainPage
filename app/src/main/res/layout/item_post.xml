@@ -13,9 +13,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/item_post_user_image"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="10dp"
+            style="@style/post_user_image"
             tools:src="@drawable/portrait_placeholder" />
 
         <LinearLayout
@@ -28,28 +26,19 @@
 
             <TextView
                 android:id="@+id/item_post_user_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:textColor="@color/colorBlack"
-                android:textSize="13.5sp"
+                style="@style/post_user_name"
                 tools:text="Denis Beck" />
 
             <TextView
                 android:id="@+id/item_post_user_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:textColor="@color/colorBlack"
-                android:textSize="11.5sp"
+                style="@style/post_user_location"
                 tools:text="Pavlodar, Kz" />
 
         </LinearLayout>
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="13dp"
+            style="@style/post_icon"
+            android:contentDescription="@string/more"
             android:src="@drawable/ic_more" />
 
     </LinearLayout>
@@ -64,30 +53,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp">
 
         <ImageView
             android:id="@+id/item_post_like"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
+            style="@style/post_icon"
+            android:contentDescription="@string/like"
             android:src="@drawable/ic_like" />
 
         <ImageView
             android:id="@+id/item_post_comment"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
+            style="@style/post_icon"
+            android:contentDescription="@string/comment"
             android:src="@drawable/ic_comment" />
 
         <ImageView
             android:id="@+id/item_post_direct"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
+            style="@style/post_icon"
+            android:contentDescription="@string/direct"
             android:src="@drawable/ic_direct" />
 
         <View
@@ -97,9 +83,8 @@
 
         <ImageView
             android:id="@+id/item_post_collect"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
+            style="@style/post_icon"
+            android:contentDescription="@string/collect"
             android:src="@drawable/ic_collect" />
 
     </LinearLayout>

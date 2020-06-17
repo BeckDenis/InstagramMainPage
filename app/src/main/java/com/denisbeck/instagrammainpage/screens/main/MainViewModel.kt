@@ -1,9 +1,6 @@
 package com.denisbeck.instagrammainpage.screens.main
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import androidx.lifecycle.switchMap
+import androidx.lifecycle.*
 import com.denisbeck.instagrammainpage.networking.Resource
 import com.denisbeck.instagrammainpage.repository.MainRepository
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -15,14 +12,20 @@ val viewModelModule = module {
 
 class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
 
+    private val page = MutableLiveData<Int>()
 
-    fun updatePages() {
-        page.value = 0
+    init {
+        page.value = 1
     }
 
-    var page = MutableLiveData(0)
+    val posts = page.switchMap { page ->
+        liveData {
+            emit(Resource.loading(null))
+            emit(mainRepository.getPosts(page))
+        }
+    }
 
-    val ad = page.switchMap { _ ->
+    val ad = posts.switchMap { _ ->
         liveData {
             emit(mainRepository.getAd(429617))
         }
@@ -32,10 +35,9 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
         emit(mainRepository.getStories(429617))
     }
 
-    val posts = page.switchMap { _ ->
-        liveData {
-            emit(Resource.loading(null))
-            emit(mainRepository.getPosts(null, null))
-        }
+    fun nextPages() {
+        page.value = page.value?.plus(1)
     }
+
+
 }

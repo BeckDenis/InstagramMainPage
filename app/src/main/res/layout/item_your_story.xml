@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="83dp"
     android:layout_height="wrap_content"
@@ -14,33 +13,22 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/item_story_image"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_gravity="center_horizontal"
-            android:padding="4dp"
+            style="@style/your_story_image"
             tools:src="@drawable/ic_launcher_background" />
 
         <ImageView
             android:layout_width="17dp"
             android:layout_height="17dp"
-            android:src="@drawable/ic_add_story"
             android:layout_gravity="bottom|end"
-            android:layout_margin="4dp" />
-    </FrameLayout>
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_add_story"
+            tools:ignore="ContentDescription" />
 
+    </FrameLayout>
 
     <TextView
         android:id="@+id/item_story_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:gravity="center_horizontal"
-        android:maxLines="1"
-        android:paddingStart="2dp"
-        android:paddingEnd="2dp"
-        android:text="@string/your_story"
-        android:textColor="@color/colorBlack"
-        android:textSize="12sp" />
+        style="@style/story_text"
+        android:text="@string/your_story" />
 
 </LinearLayout>

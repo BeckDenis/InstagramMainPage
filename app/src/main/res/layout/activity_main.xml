@@ -1,59 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            app:contentInsetStart="0dp"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="@style/ThemeOverlay.AppCompat.Light"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="56dp"
-                    android:src="@drawable/ic_camera"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:paddingTop="18dp"
-                    android:paddingBottom="17dp"
-                    android:layout_height="56dp"/>
-
-                <ImageView
-                    android:adjustViewBounds="true"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_name"
-                    android:layout_height="30dp"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
-
-                <ImageView
-                    android:layout_width="56dp"
-                    android:padding="16dp"
-                    android:layout_height="56dp"
-                    android:src="@drawable/ic_direct"/>
-
-            </LinearLayout>
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <include layout="@layout/toolbar" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_nav_host_fragment"

@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * from https://medium.com/@anitaa_1990/pagination-in-recyclerview-without-paging-library-1c48e9328f81
- *
- * I don't use much of this because in this App used only LinearLayoutManager, also my API has no pages and I load the same page each time
+ * based on https://medium.com/@anitaa_1990/pagination-in-recyclerview-without-paging-library-1c48e9328f81
  */
 
 abstract class RecyclerViewPaginator(recyclerView: RecyclerView) : RecyclerView.OnScrollListener() {
@@ -18,9 +16,7 @@ abstract class RecyclerViewPaginator(recyclerView: RecyclerView) : RecyclerView.
     }
 
     private val threshold = 10
-
     private val layoutManager: RecyclerView.LayoutManager?
-
     abstract val isLoading: Boolean
 
     init {
@@ -30,14 +26,15 @@ abstract class RecyclerViewPaginator(recyclerView: RecyclerView) : RecyclerView.
 
     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
         super.onScrollStateChanged(recyclerView, newState)
-        Log.d(TAG, "onScrollStateChanged: $newState")
         if (newState == SCROLL_STATE_IDLE && layoutManager != null && layoutManager is LinearLayoutManager) {
 
             val totalItemCount = layoutManager.itemCount
-
             val firstVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
 
             if (!isLoading && firstVisibleItemPosition + threshold >= totalItemCount) {
+
+                Log.d(TAG, "onScrollStateChanged: ${layoutManager.itemCount}")
+                Log.d(TAG, "onScrollStateChanged: ${layoutManager.findLastVisibleItemPosition()}")
                 loadMore()
             }
         }

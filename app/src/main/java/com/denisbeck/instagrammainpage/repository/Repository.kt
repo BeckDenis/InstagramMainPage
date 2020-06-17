@@ -12,18 +12,14 @@ val postsModule = module {
 
 class MainRepository(
     private val responseHandler: ResponseHandler,
+    private val storiesApi: StoriesApi,
     private val postsApi: PostsApi,
-    private val adApi: AdApi,
-    private val storiesApi: StoriesApi
+    private val adApi: AdApi
 ) {
 
-    companion object {
-        private val TAG = MainRepository::class.java.simpleName
-    }
-
-    suspend fun getPosts(page: Int?, genre: Int?): Resource<Posts> {
+    suspend fun getPosts(page: Int?): Resource<Posts> {
         return try {
-            val response = postsApi.getPosts(page, genre)
+            val response = postsApi.getPosts(page)
             return responseHandler.handleSuccess(response)
         } catch (e: Exception) {
             responseHandler.handleException(e)

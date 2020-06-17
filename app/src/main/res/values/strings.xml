@@ -3,4 +3,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="your_story">Your Story</string>
+    <string name="camera">Camera</string>
+    <string name="logo">Logo</string>
+    <string name="direct">Direct</string>
+    <string name="more">More</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="collect">Collect</string>
 </resources>

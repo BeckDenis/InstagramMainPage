@@ -58,20 +58,17 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 get() = viewModel.posts.value?.status == Status.LOADING
 
             override fun loadMore() {
-                Log.d(TAG, "loadMore: called")
-                viewModel.updatePages()
+                viewModel.nextPages()
             }
 
         })
     }
 
     private fun updateStories(stories: Stories) {
-        Log.d(TAG, "updateStories: called")
         adapter.add(1, StoriesItem(stories))
     }
 
     private fun updatePosts(_posts: Posts) {
-        Log.d(TAG, "updatePosts: called")
         val posts = Section(_posts.results.map { PostItem(it) })
         adapter.add(adapter.groupCount - 1, posts)
     }
