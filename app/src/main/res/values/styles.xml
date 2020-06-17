@@ -24,6 +24,10 @@
         <item name="android:textSize">13.5sp</item>
     </style>
 
+    <style name="largest_text">
+        <item name="android:textSize">16sp</item>
+    </style>
+
 
     //Toolbar
 

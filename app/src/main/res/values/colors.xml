@@ -6,6 +6,8 @@
     <color name="colorAccent">#B3B3B3</color>
     <color name="colorDivider">#B3B3B3</color>
     <color name="colorTest">#ED4756</color>
+    <color name="colorBlue">#1993DF</color>
     <color name="colorBlack">#000</color>
-    <color name="grayText">#9A9BB2</color>
+    <color name="colorGray">#9A9BB2</color>
+    <color name="colorBackground">#F9F9F9</color>
 </resources>

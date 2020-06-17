@@ -16,4 +16,8 @@
     <string name="view_all">View all %d comments</string>
     <string name="date">2 days ago</string>
     <string name="likes">%d likes</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="sponsored">Sponsored</string>
+    <string name="caption">Kotlin is better than Java! join us!</string>
+    <string name="learn_more">Learn More</string>
 </resources>

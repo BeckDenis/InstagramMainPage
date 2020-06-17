@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.denisbeck.instagrammainpage.R
+import com.denisbeck.instagrammainpage.utils.*
 
 fun ImageView.insertImageW185(posterId: String?) {
     Glide.with(context).load("https://image.tmdb.org/t/p/w185$posterId").into(this)
@@ -94,10 +95,6 @@ fun TextView.liked(context: Context) {
         }
     }
 
-
 }
-
-private fun randomName():String = listOf("max_xam", "peterblack", "igor0rud", "denisbeck", "ira_life").shuffled().first()
-private fun randomComment():String = listOf("Wow!", "I like it", "LolololoL", "I love this film!").shuffled().first()
 
 

@@ -9,10 +9,7 @@ import com.denisbeck.instagrammainpage.R
 import com.denisbeck.instagrammainpage.models.Posts
 import com.denisbeck.instagrammainpage.models.Stories
 import com.denisbeck.instagrammainpage.networking.Status
-import com.denisbeck.instagrammainpage.screens.main.items.EmptyItem
-import com.denisbeck.instagrammainpage.screens.main.items.PostItem
-import com.denisbeck.instagrammainpage.screens.main.items.ProgressBarItem
-import com.denisbeck.instagrammainpage.screens.main.items.StoriesItem
+import com.denisbeck.instagrammainpage.screens.main.items.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Section
@@ -72,6 +69,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val posts = Section(_posts.results.map { post ->
             PostItem(post)
         })
+        val position = (10 until posts.itemCount).shuffled().first()
+        posts.add(position, AdItem())
         adapter.add(adapter.groupCount - 1, posts)
     }
 
