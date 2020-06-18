@@ -10,7 +10,6 @@ val networkModule = module {
     factory { AuthInterceptor() }
     factory { provideOkHttpClient(get()) }
     factory { providePostsApi(get()) }
-    factory { provideAdApi(get()) }
     factory { provideStoriesApi(get()) }
     single { provideRetrofit(get()) }
     factory { ResponseHandler() }
@@ -26,7 +25,5 @@ fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
 }
 
 fun providePostsApi(retrofit: Retrofit): PostsApi = retrofit.create(PostsApi::class.java)
-
-fun provideAdApi(retrofit: Retrofit): AdApi = retrofit.create(AdApi::class.java)
 
 fun provideStoriesApi(retrofit: Retrofit): StoriesApi = retrofit.create(StoriesApi::class.java)

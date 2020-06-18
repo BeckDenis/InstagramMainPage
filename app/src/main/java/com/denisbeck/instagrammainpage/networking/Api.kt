@@ -12,11 +12,6 @@ interface PostsApi {
     suspend fun getPosts(@Query("page") page: Int?): Posts
 }
 
-interface AdApi {
-    @GET("movie/{id}")
-    suspend fun getAd(@Path("id") id: Int): Ad
-}
-
 interface StoriesApi {
     @GET("movie/{id}/credits")
     suspend fun getStories(@Path("id") id: Int): Stories

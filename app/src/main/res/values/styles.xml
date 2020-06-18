@@ -38,16 +38,19 @@
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Light</item>
     </style>
 
-    <style name="toolbar_icon">
-        <item name="android:layout_width">56dp</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:layout_height">56dp</item>
+    <style name="icon">
+        <item name="android:layout_width">@dimen/icon_width</item>
+        <item name="android:layout_height">@dimen/icon_height</item>
+        <item name="android:paddingStart">@dimen/padding_icon_horizontal</item>
+        <item name="android:paddingEnd">@dimen/padding_icon_horizontal</item>
+        <item name="android:paddingTop">@dimen/padding_icon_vertical</item>
+        <item name="android:paddingBottom">@dimen/padding_icon_vertical</item>
     </style>
 
     <style name="logo">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">30dp</item>
-        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginTop">4dp</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
 
@@ -83,7 +86,7 @@
     <style name="post_user_image">
         <item name="android:layout_width">@dimen/post_user_image_size</item>
         <item name="android:layout_height">@dimen/post_user_image_size</item>
-        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:padding">8dp</item>
     </style>
 
     <style name="post_user_name">
@@ -102,19 +105,19 @@
         <item name="android:textAppearance">@style/small_text</item>
     </style>
 
-    <style name="post_icon">
-        <item name="android:layout_width">40dp</item>
-        <item name="android:layout_height">40dp</item>
-        <item name="android:padding">8dp</item>
-    </style>
+<!--    <style name="post_icon">-->
+<!--        <item name="android:layout_width">@dimen/icon_size</item>-->
+<!--        <item name="android:layout_height">@dimen/icon_size</item>-->
+<!--        <item name="android:padding">@dimen/padding_text_horizontal</item>-->
+<!--    </style>-->
 
     <style name="post_comment">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxLines">1</item>
         <item name="android:layout_marginTop">1dp</item>
-        <item name="android:paddingStart">@dimen/padding_horizontal</item>
-        <item name="android:paddingEnd">@dimen/padding_horizontal</item>
+        <item name="android:paddingStart">@dimen/padding_text_horizontal</item>
+        <item name="android:paddingEnd">@dimen/padding_text_horizontal</item>
         <item name="android:textAppearance">@style/large_text</item>
     </style>
 
@@ -126,6 +129,28 @@
         <item name="android:paddingStart">@dimen/item_recommendation_padding</item>
         <item name="android:paddingEnd">@dimen/item_recommendation_padding</item>
         <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="ad_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:background">@color/colorBackground</item>
+        <item name="android:drawableEnd">@drawable/ic_arrow_right</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">@dimen/padding_text_horizontal</item>
+        <item name="android:paddingEnd">@dimen/padding_text_horizontal</item>
+        <item name="android:textAppearance">@style/largest_text</item>
+        <item name="android:textColor">@color/colorBlue</item>
+    </style>
+
+    // Divider
+
+    <style name="divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:background">@color/colorDivider</item>
     </style>
 
 </resources>

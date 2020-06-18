@@ -6,15 +6,15 @@
     android:background="@color/colorPrimaryDark23"
     android:orientation="vertical">
 
-    <include layout="@layout/divider" />
+    <View style="@style/divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="@dimen/padding_horizontal"
-        android:paddingEnd="@dimen/padding_horizontal">
+        android:paddingStart="@dimen/padding_text_horizontal"
+        android:paddingEnd="@dimen/padding_text_horizontal">
 
         <TextView
             android:layout_width="0dp"
@@ -44,6 +44,6 @@
         android:paddingEnd="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <include layout="@layout/divider" />
+    <View style="@style/divider" />
 
 </LinearLayout>

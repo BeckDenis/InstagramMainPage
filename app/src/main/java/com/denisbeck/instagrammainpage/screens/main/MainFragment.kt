@@ -10,6 +10,7 @@ import com.denisbeck.instagrammainpage.models.Posts
 import com.denisbeck.instagrammainpage.models.Stories
 import com.denisbeck.instagrammainpage.networking.Status
 import com.denisbeck.instagrammainpage.screens.main.items.*
+import com.denisbeck.instagrammainpage.utils.randomBoolean
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -34,9 +35,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             add(ProgressBarItem())
         }
         recycler_view.adapter = adapter
-
-        viewModel.ad.observe(viewLifecycleOwner, Observer {
-        })
 
         viewModel.stories.observe(viewLifecycleOwner, Observer {
             it.data?.let { stories ->
@@ -74,7 +72,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun randomItemView() : Item<GroupieViewHolder> {
-        return if ((0..1).shuffled().first() == 1) {
+        return if (randomBoolean()) {
             AdItem()
         } else {
             viewModel.stories.value?.data?.let { stories ->

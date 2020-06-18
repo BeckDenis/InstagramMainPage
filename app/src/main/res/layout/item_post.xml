@@ -9,9 +9,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="52dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/padding_container_horizontal"
+        android:paddingEnd="@dimen/padding_container_horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/item_post_user_image"
@@ -21,7 +23,6 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:orientation="vertical">
@@ -39,7 +40,7 @@
         </LinearLayout>
 
         <ImageView
-            style="@style/post_icon"
+            style="@style/icon"
             android:contentDescription="@string/more"
             android:src="@drawable/ic_more" />
 
@@ -53,51 +54,51 @@
             android:id="@+id/item_post_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="200dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/post_image"
+            android:minHeight="200dp"
             tools:src="@drawable/ic_launcher_background" />
 
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/item_post_menu"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom"
-            android:background="@color/colorBackground"
-            android:drawableEnd="@drawable/ic_arrow_right"
-            android:gravity="center_vertical"
-            android:paddingStart="@dimen/padding_horizontal"
-            android:paddingEnd="@dimen/padding_horizontal"
-            android:text="@string/learn_more"
-            android:textAppearance="@style/largest_text"
-            android:textColor="@color/colorBlue" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:id="@+id/item_post_ad_text"
+                style="@style/ad_text"
+                android:text="@string/learn_more" />
+
+            <View style="@style/divider" />
+
+        </FrameLayout>
+
 
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/icon_height"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp">
+        android:paddingStart="@dimen/padding_container_horizontal"
+        android:paddingEnd="@dimen/padding_container_horizontal">
 
         <ImageView
             android:id="@+id/item_post_like"
-            style="@style/post_icon"
+            style="@style/icon"
             android:contentDescription="@string/like"
             android:src="@drawable/ic_like" />
 
         <ImageView
             android:id="@+id/item_post_comment"
-            style="@style/post_icon"
+            style="@style/icon"
             android:contentDescription="@string/comment"
             android:src="@drawable/ic_comment" />
 
         <ImageView
             android:id="@+id/item_post_direct"
-            style="@style/post_icon"
+            style="@style/icon"
             android:contentDescription="@string/direct"
             android:src="@drawable/ic_direct" />
 
@@ -108,7 +109,7 @@
 
         <ImageView
             android:id="@+id/item_post_collect"
-            style="@style/post_icon"
+            style="@style/icon"
             android:contentDescription="@string/collect"
             android:src="@drawable/ic_collect" />
 

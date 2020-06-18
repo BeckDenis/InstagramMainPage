@@ -25,12 +25,6 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
         }
     }
 
-    val ad = posts.switchMap { _ ->
-        liveData {
-            emit(mainRepository.getAd(429617))
-        }
-    }
-
     val stories = liveData {
         emit(mainRepository.getStories(429617))
     }

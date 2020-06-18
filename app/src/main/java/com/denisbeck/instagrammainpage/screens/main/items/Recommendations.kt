@@ -37,7 +37,10 @@ class RecommendationItem(private val story: Story) : Item<GroupieViewHolder>() {
         viewHolder.itemView.run {
             item_recommendation_name.text = story.name
             item_recommendation_image.insertImageOrDrawable(story.profile_path)
-            item_recommendation_button.setOnClickListener { (it as Button).changeState()
+            item_recommendation_button.run {
+                // Now, when scrolling, the pressed buttons are reused on the not pressed buttons.
+                // This will be fixed using real data that will store subscription information.
+                setOnClickListener { (it as Button).changeState() }
             }
         }
     }

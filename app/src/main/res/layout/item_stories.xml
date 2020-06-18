@@ -11,7 +11,7 @@
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <include layout="@layout/divider" />
+    <View style="@style/divider" />
 
 </FrameLayout>
 

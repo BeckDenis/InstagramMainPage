@@ -11,12 +11,15 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <LinearLayout
+            android:paddingStart="@dimen/padding_container_horizontal"
+            android:paddingEnd="@dimen/padding_container_horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageView
-                style="@style/toolbar_icon"
+                style="@style/icon"
                 android:contentDescription="@string/camera"
                 android:src="@drawable/ic_camera" />
 
@@ -31,7 +34,7 @@
                 android:layout_weight="1" />
 
             <ImageView
-                style="@style/toolbar_icon"
+                style="@style/icon"
                 android:contentDescription="@string/direct"
                 android:src="@drawable/ic_direct" />
 

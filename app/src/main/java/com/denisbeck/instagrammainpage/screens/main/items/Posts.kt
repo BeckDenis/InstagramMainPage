@@ -23,7 +23,7 @@ class PostItem(private val post: Post) : Item<GroupieViewHolder>() {
             item_post_show_all_comments.comments()
             item_post_date.text = context.getString(R.string.date)
             item_post_liked.liked(context)
-            item_post_menu.visibility = View.GONE
+            item_post_ad_text.visibility = View.GONE
         }
     }
 
@@ -42,7 +42,7 @@ class AdItem : Item<GroupieViewHolder>() {
             item_post_show_all_comments.comments()
             item_post_date.text = context.getString(R.string.date)
             item_post_liked.liked(context)
-            item_post_menu.visibility = View.VISIBLE
+            item_post_ad_text.visibility = View.VISIBLE
             item_post_caption.caption(
                 context.getString(R.string.kotlin),
                 context.getString(R.string.caption)
