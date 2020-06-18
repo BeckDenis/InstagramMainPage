@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // Don't change the number of items!
+    <string-array name="liked">
+        <item>Liked by\u0020</item>
+        <item>\u0020and\u0020</item>
+        <item>\u0020others</item>
+    </string-array>
+</resources>

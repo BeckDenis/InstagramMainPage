@@ -1,43 +1,30 @@
 package com.denisbeck.instagrammainpage.extensions
 
 import android.content.Context
-import android.graphics.Typeface
-import android.text.Spannable
 import android.text.SpannableString
-import android.text.style.StyleSpan
 import android.view.View
 import android.widget.TextView
 import com.denisbeck.instagrammainpage.R
-import com.denisbeck.instagrammainpage.utils.randomBoolean
 import com.denisbeck.instagrammainpage.utils.randomComment
 import com.denisbeck.instagrammainpage.utils.randomName
 
-fun TextView.caption(_name: String? = null, _overview: String? = null) {
-    fun span(name: String, overview: String) = SpannableString("$name $overview").apply {
-        setSpan(
-            StyleSpan(Typeface.BOLD),
-            0,
-            name.length,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-    }
-
-    if (randomBoolean()) {
+fun TextView.caption(_name: String? = null, _text: String? = null) {
+    if ((0..1).random() == 1) {
         val name = _name ?: randomName()
-        val text = _overview ?: randomComment()
+        val text = _text ?: randomComment()
         this.visibility = View.VISIBLE
-        this.text = span(name, text)
+        this.text = SpannableString("$name $text").apply {
+            setSpan(0, name.length)
+        }
     } else {
         this.visibility = View.GONE
     }
 }
 
 fun TextView.comments() {
-    fun commentsNumber() = (1..999).shuffled().first()
-
-    if (randomBoolean()) {
+    if ((0..1).random() == 1) {
         this.visibility = View.VISIBLE
-        this.text = context.getString(R.string.view_all, commentsNumber())
+        this.text = context.getString(R.string.view_all, (1..999).random())
     } else {
         this.visibility = View.GONE
     }
@@ -45,39 +32,20 @@ fun TextView.comments() {
 
 fun TextView.liked(context: Context) {
 
-    fun randomNumber(): Int = (3..999).shuffled().first()
-
-    if (randomBoolean()) {
-        val likedBy = context.getString(R.string.liked)
-        val and = context.getString(R.string.liked2)
-        val others = context.getString(R.string.liked3)
-
+    if ((0..1).random() == 1) {
+        val string = resources.getStringArray(R.array.liked)
         val name = randomName()
-        val number = randomNumber().toString()
 
-        this.text = SpannableString("$likedBy$name$and$number$others").apply {
-            setSpan(
-                StyleSpan(Typeface.BOLD),
-                likedBy.length,
-                likedBy.length + name.length,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            setSpan(
-                StyleSpan(Typeface.BOLD),
-                likedBy.length + name.length + and.length,
-                this.length,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
+        /*Depending on localization word length can be changed, unfortunately, I couldn't find a
+        better solution to the problem*/
+        require(string.size == 3) { "R.array.liked should be size 3" }
+        this.text = SpannableString(string[0] + name + string[1] + (3..999).random() + string[2]).apply {
+            setSpan(string[0].length, string[0].length + name.length)
+            setSpan(string[0].length + name.length + string[1].length, this.length)
         }
     } else {
-        this.text = SpannableString(context.getString(R.string.likes, randomNumber())).apply {
-            setSpan(
-                StyleSpan(Typeface.BOLD),
-                0,
-                this.length,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
+        this.text = SpannableString(context.getString(R.string.likes, (3..999).random())).apply {
+            setSpan(0, this.length)
         }
     }
-
 }

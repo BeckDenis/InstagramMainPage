@@ -10,7 +10,6 @@ import com.denisbeck.instagrammainpage.models.Posts
 import com.denisbeck.instagrammainpage.models.Stories
 import com.denisbeck.instagrammainpage.networking.Status
 import com.denisbeck.instagrammainpage.screens.main.items.*
-import com.denisbeck.instagrammainpage.utils.randomBoolean
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -31,20 +30,24 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = GroupAdapter<GroupieViewHolder>().apply {
+            // Add an empty item to prevent jumping inside recycler
             add(EmptyItem())
             add(ProgressBarItem())
         }
         recycler_view.adapter = adapter
 
-        viewModel.stories.observe(viewLifecycleOwner, Observer {
-            it.data?.let { stories ->
-                updateStories(stories)
+        viewModel.stories.observe(viewLifecycleOwner, Observer { resource ->
+            resource.run {
+                data?.let { stories -> updateStories(stories) }
+                message?.let { Log.e(TAG, "stories: $it") }
             }
+
         })
 
-        viewModel.posts.observe(viewLifecycleOwner, Observer {
-            it.data?.let { movies ->
-                updatePosts(movies)
+        viewModel.posts.observe(viewLifecycleOwner, Observer { resource ->
+            resource.run {
+                data?.let { movies -> updatePosts(movies) }
+                message?.let { Log.e(TAG, "posts: $it") }
             }
         })
 
@@ -66,13 +69,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun updatePosts(_posts: Posts) {
         val posts = Section(_posts.results.map { post -> PostItem(post) })
-        val position = (10 until posts.itemCount).shuffled().first()
+        val position = (10 until posts.itemCount).random()
         posts.add(position, randomItemView())
         adapter.add(adapter.groupCount - 1, posts)
     }
 
-    private fun randomItemView() : Item<GroupieViewHolder> {
-        return if (randomBoolean()) {
+    private fun randomItemView(): Item<GroupieViewHolder> {
+        return if ((0..1).random() == 1) {
             AdItem()
         } else {
             viewModel.stories.value?.data?.let { stories ->
