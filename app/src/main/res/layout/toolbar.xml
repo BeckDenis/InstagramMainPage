@@ -28,11 +28,6 @@
                 android:contentDescription="@string/logo"
                 android:src="@drawable/ic_name" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
             <ImageView
                 style="@style/icon"
                 android:contentDescription="@string/direct"
