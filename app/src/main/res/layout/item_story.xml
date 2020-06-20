@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="83dp"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/item_story_image"
-        app:civ_border_color="@color/colorTest"
-        app:civ_border_width="2dp"
-        tools:src="@drawable/ic_launcher_background"
-        style="@style/story_image" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/story_bg" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_story_image"
+            tools:src="@drawable/ic_launcher_background"
+            style="@style/story_image" />
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/item_story_text"
-        style="@style/story_text" />
+        style="@style/story_text"
+        tools:text="Musk"/>
 
 </LinearLayout>

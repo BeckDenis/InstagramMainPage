@@ -7,13 +7,12 @@
 
     <FrameLayout
         android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12dp">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/item_story_image"
-            style="@style/your_story_image"
+            style="@style/story_image"
             tools:src="@drawable/ic_launcher_background" />
 
         <ImageView
