@@ -59,6 +59,15 @@
             android:minHeight="200dp"
             tools:src="@drawable/ic_launcher_background" />
 
+        <ImageView
+            android:id="@+id/big_like"
+            android:layout_gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/big_like_animation"
+            android:alpha="0"
+            tools:ignore="ContentDescription" />
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,6 +96,7 @@
         <ImageView
             android:id="@+id/item_post_like"
             style="@style/icon"
+            android:tag="@string/ic_tag_border"
             android:contentDescription="@string/like"
             android:src="@drawable/ic_like" />
 

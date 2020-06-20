@@ -1,12 +1,19 @@
 package com.denisbeck.instagrammainpage.screens.main.items
 
+import android.graphics.drawable.AnimatedVectorDrawable
+import android.util.Log
 import android.view.View
+import android.widget.ImageView
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import com.denisbeck.instagrammainpage.R
+import com.denisbeck.instagrammainpage.animation.likeAnimation
+import com.denisbeck.instagrammainpage.animation.repeatLikeAnimation
 import com.denisbeck.instagrammainpage.extensions.*
 import com.denisbeck.instagrammainpage.models.Post
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.item_post.view.*
+import java.lang.Error
 
 class PostItem(private val post: Post) : Item<GroupieViewHolder>() {
 
@@ -24,6 +31,16 @@ class PostItem(private val post: Post) : Item<GroupieViewHolder>() {
             item_post_date.text = context.getString(R.string.date)
             item_post_liked.liked(context)
             item_post_ad_text.visibility = View.GONE
+            item_post_like.setOnClickListener { (it as ImageView).likeAnimation() }
+            item_post_image.setOnClickListener {
+                big_like.alpha = 0.8f
+                (big_like.drawable as AnimatedVectorDrawable).start()
+                if (item_post_like.tag == context.getString(R.string.ic_tag_border)) {
+                    (item_post_like as ImageView).likeAnimation()
+                } else {
+                    (item_post_like as ImageView).repeatLikeAnimation()
+                }
+            }
         }
     }
 
