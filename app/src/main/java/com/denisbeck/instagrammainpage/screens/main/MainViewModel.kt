@@ -33,5 +33,4 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
         page.value = page.value?.plus(1)
     }
 
-
 }

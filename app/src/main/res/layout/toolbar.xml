@@ -10,30 +10,31 @@
         app:contentInsetStart="0dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <LinearLayout
-            android:paddingStart="@dimen/padding_container_horizontal"
-            android:paddingEnd="@dimen/padding_container_horizontal"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:paddingStart="@dimen/padding_container_horizontal"
+            android:paddingEnd="@dimen/padding_container_horizontal">
 
             <ImageView
                 style="@style/icon"
+                android:layout_gravity="start"
                 android:contentDescription="@string/camera"
                 android:src="@drawable/ic_camera" />
 
             <ImageView
                 style="@style/logo"
+                android:layout_gravity="center"
                 android:contentDescription="@string/logo"
                 android:src="@drawable/ic_name" />
 
             <ImageView
                 style="@style/icon"
+                android:layout_gravity="end"
                 android:contentDescription="@string/direct"
                 android:src="@drawable/ic_direct" />
 
-        </LinearLayout>
+        </FrameLayout>
     </androidx.appcompat.widget.Toolbar>
 
 </com.google.android.material.appbar.AppBarLayout>

@@ -11,8 +11,8 @@ val networkModule = module {
     factory { provideOkHttpClient(get()) }
     factory { providePostsApi(get()) }
     factory { provideStoriesApi(get()) }
-    single { provideRetrofit(get()) }
     factory { ResponseHandler() }
+    single { provideRetrofit(get()) }
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {

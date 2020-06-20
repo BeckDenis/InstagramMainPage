@@ -11,10 +11,10 @@ import com.denisbeck.instagrammainpage.extensions.insertDrawable
 
 fun ImageView.iconAnimation(borderDrawable: Int, fillDrawable: Int) {
     isClickable = false
-    tuneAnimation(0f) {
+    scaleTo(0f) {
         changeDrawable(borderDrawable, fillDrawable)
-        tuneAnimation(1.2f) {
-            tuneAnimation(1f) {
+        scaleTo(1.2f) {
+            scaleTo(1f) {
                 isClickable = true
             }
         }
@@ -23,14 +23,14 @@ fun ImageView.iconAnimation(borderDrawable: Int, fillDrawable: Int) {
 
 fun ImageView.repeatLikeAnimation() {
     isClickable = false
-    tuneAnimation(1.2f) {
-        tuneAnimation(1f) {
+    scaleTo(1.2f) {
+        scaleTo(1f) {
             isClickable = true
         }
     }
 }
 
-private fun ImageView.tuneAnimation(scale: Float, listenerEnd: () -> Unit) {
+private fun ImageView.scaleTo(scale: Float, listenerEnd: () -> Unit) {
     getScaleObjectAnimator(scale, scale).apply {
         animatorEndListener { listenerEnd() }
         duration = 200

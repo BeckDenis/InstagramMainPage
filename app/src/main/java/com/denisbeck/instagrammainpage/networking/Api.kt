@@ -1,6 +1,5 @@
 package com.denisbeck.instagrammainpage.networking
 
-import com.denisbeck.instagrammainpage.models.Ad
 import com.denisbeck.instagrammainpage.models.Stories
 import com.denisbeck.instagrammainpage.models.Posts
 import retrofit2.http.GET

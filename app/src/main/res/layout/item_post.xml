@@ -61,48 +61,48 @@
 
         <ImageView
             android:id="@+id/item_post_big_like"
-            android:layout_gravity="center"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/big_like_animation"
+            android:layout_gravity="center"
             android:alpha="0"
+            android:src="@drawable/big_like_animation"
             tools:ignore="ContentDescription" />
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/item_post_collection"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimaryDark23"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:paddingStart="@dimen/padding_text_horizontal"
             android:paddingEnd="@dimen/padding_text_horizontal"
-            android:background="@color/colorPrimaryDark23"
-            android:layout_gravity="bottom"
-            android:layout_width="match_parent"
-            android:gravity="center_vertical"
-            android:layout_height="38dp"
-            android:orientation="horizontal">
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/item_post_collect_image"
-                android:scaleType="centerCrop"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                tools:src="@drawable/ic_launcher_background"
-                tools:ignore="ContentDescription" />
+                android:scaleType="centerCrop"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_launcher_background" />
 
             <TextView
-                android:layout_marginStart="8dp"
-                android:textAppearance="@style/large_text"
-                android:textColor="@color/colorBlack"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/saved"/>
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="@string/saved"
+                android:textAppearance="@style/large_text"
+                android:textColor="@color/colorBlack" />
 
             <TextView
-                android:textColor="@color/colorBlue"
-                android:textAppearance="@style/largest_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/save_to_collection"/>
+                android:text="@string/save_to_collection"
+                android:textAppearance="@style/largest_text"
+                android:textColor="@color/colorBlue" />
 
         </LinearLayout>
 
@@ -133,9 +133,9 @@
         <ImageView
             android:id="@+id/item_post_like"
             style="@style/icon"
-            android:tag="@string/ic_tag_border"
             android:contentDescription="@string/like"
-            android:src="@drawable/ic_like" />
+            android:src="@drawable/ic_like"
+            android:tag="@string/ic_tag_border" />
 
         <ImageView
             android:id="@+id/item_post_comment"
@@ -155,11 +155,11 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:tag="@string/ic_tag_border"
             android:id="@+id/item_post_collect"
             style="@style/icon"
             android:contentDescription="@string/collect"
-            android:src="@drawable/ic_collect" />
+            android:src="@drawable/ic_collect"
+            android:tag="@string/ic_tag_border" />
 
     </LinearLayout>
 
@@ -167,7 +167,7 @@
         android:id="@+id/item_post_liked"
         style="@style/post_comment"
         android:textColor="@color/colorBlack"
-        tools:text="Liked by Ptuxerman and 50 others" />
+        tools:text="Liked by ptuxerman and 50 others" />
 
     <TextView
         android:id="@+id/item_post_caption"

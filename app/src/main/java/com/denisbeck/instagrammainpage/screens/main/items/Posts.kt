@@ -41,38 +41,43 @@ class PostItem(private val post: Post) : Item<GroupieViewHolder>() {
             item_post_like.setOnClickListener {
                 (it as ImageView).iconAnimation(R.drawable.ic_like, R.drawable.ic_like_fill)
             }
-            item_post_image.setOnClickListener {
-                item_post_big_like.alpha = 0.8f
-                (item_post_big_like.drawable as AnimatedVectorDrawable).start()
-                if (item_post_like.tag == context.getString(R.string.ic_tag_border)) {
-                    (item_post_like as ImageView).iconAnimation(
-                        R.drawable.ic_like,
-                        R.drawable.ic_like_fill
-                    )
-                } else {
-                    (item_post_like as ImageView).repeatLikeAnimation()
-                }
-            }
+            item_post_image.setOnClickListener { bigLikeAnimation() }
 
             // Collections
             item_post_collection.translationY = context.dpToPx(38).toFloat()
-            item_post_collect.setOnClickListener {
-                item_post_collect_image.insertImageW185(post.poster_path)
-                (it as ImageView).iconAnimation(R.drawable.ic_collect, R.drawable.ic_collect_fill)
-                val distance = if (it.tag == context.getString(R.string.ic_tag_border)) {
-                    0f
-                } else context.dpToPx(38).toFloat()
-                item_post_collection.translateY(distance)
-            }
+            item_post_collect.setOnClickListener { collectAnimation() }
 
             // Ad
             item_post_ad.visibility = View.GONE
         }
     }
 
+    private fun View.collectAnimation() {
+        item_post_collect_image.insertImageW185(post.poster_path)
+        (item_post_collect as ImageView).iconAnimation(
+            R.drawable.ic_collect, R.drawable.ic_collect_fill
+        )
+        val dp = if (item_post_collect.tag == context.getString(R.string.ic_tag_border)) 0 else 38
+        item_post_collection.translateY(dp)
+    }
+
+    private fun View.bigLikeAnimation() {
+        item_post_big_like.alpha = 0.8f
+        (item_post_big_like.drawable as AnimatedVectorDrawable).start()
+        (item_post_like as ImageView).run{
+            if (item_post_like.tag == context.getString(R.string.ic_tag_border)) {
+                iconAnimation(R.drawable.ic_like, R.drawable.ic_like_fill)
+            } else {
+                repeatLikeAnimation()
+            }
+        }
+
+    }
+
 }
 
 class AdItem : Item<GroupieViewHolder>() {
+
     override fun getLayout() = R.layout.item_post
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {

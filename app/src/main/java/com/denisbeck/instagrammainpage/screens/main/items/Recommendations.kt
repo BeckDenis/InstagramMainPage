@@ -1,13 +1,10 @@
 package com.denisbeck.instagrammainpage.screens.main.items
 
 import android.widget.Button
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.denisbeck.instagrammainpage.R
 import com.denisbeck.instagrammainpage.extensions.changeState
-import com.denisbeck.instagrammainpage.extensions.insertDrawable
 import com.denisbeck.instagrammainpage.extensions.insertImageOrDrawable
-import com.denisbeck.instagrammainpage.extensions.insertImageW185
 import com.denisbeck.instagrammainpage.models.Stories
 import com.denisbeck.instagrammainpage.models.Story
 import com.xwray.groupie.GroupAdapter
@@ -44,6 +41,5 @@ class RecommendationItem(private val story: Story) : Item<GroupieViewHolder>() {
             }
         }
     }
-
 
 }
