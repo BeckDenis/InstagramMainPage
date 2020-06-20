@@ -60,7 +60,7 @@
             tools:src="@drawable/ic_launcher_background" />
 
         <ImageView
-            android:id="@+id/big_like"
+            android:id="@+id/item_post_big_like"
             android:layout_gravity="center"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -68,20 +68,57 @@
             android:alpha="0"
             tools:ignore="ContentDescription" />
 
-        <FrameLayout
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/item_post_collection"
+            android:paddingStart="@dimen/padding_text_horizontal"
+            android:paddingEnd="@dimen/padding_text_horizontal"
+            android:background="@color/colorPrimaryDark23"
+            android:layout_gravity="bottom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
+            android:gravity="center_vertical"
+            android:layout_height="38dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/item_post_collect_image"
+                android:scaleType="centerCrop"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                tools:src="@drawable/ic_launcher_background"
+                tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/item_post_ad_text"
-                style="@style/ad_text"
-                android:text="@string/learn_more" />
+                android:layout_marginStart="8dp"
+                android:textAppearance="@style/large_text"
+                android:textColor="@color/colorBlack"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/saved"/>
 
-            <View style="@style/divider" />
+            <TextView
+                android:textColor="@color/colorBlue"
+                android:textAppearance="@style/largest_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save_to_collection"/>
 
-        </FrameLayout>
+        </LinearLayout>
 
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/item_post_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <TextView
+            style="@style/ad_text"
+            android:text="@string/learn_more" />
+
+        <View style="@style/divider" />
 
     </FrameLayout>
 
@@ -118,6 +155,7 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:tag="@string/ic_tag_border"
             android:id="@+id/item_post_collect"
             style="@style/icon"
             android:contentDescription="@string/collect"

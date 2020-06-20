@@ -106,12 +106,6 @@
         <item name="android:textAppearance">@style/small_text</item>
     </style>
 
-<!--    <style name="post_icon">-->
-<!--        <item name="android:layout_width">@dimen/icon_size</item>-->
-<!--        <item name="android:layout_height">@dimen/icon_size</item>-->
-<!--        <item name="android:padding">@dimen/padding_text_horizontal</item>-->
-<!--    </style>-->
-
     <style name="post_comment">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

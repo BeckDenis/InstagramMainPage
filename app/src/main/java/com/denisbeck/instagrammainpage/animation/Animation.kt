@@ -9,10 +9,10 @@ import android.widget.ImageView
 import com.denisbeck.instagrammainpage.R
 import com.denisbeck.instagrammainpage.extensions.insertDrawable
 
-fun ImageView.likeAnimation() {
+fun ImageView.iconAnimation(borderDrawable: Int, fillDrawable: Int) {
     isClickable = false
     tuneAnimation(0f) {
-        changeDrawable(R.drawable.ic_like, R.drawable.ic_like_fill)
+        changeDrawable(borderDrawable, fillDrawable)
         tuneAnimation(1.2f) {
             tuneAnimation(1f) {
                 isClickable = true
