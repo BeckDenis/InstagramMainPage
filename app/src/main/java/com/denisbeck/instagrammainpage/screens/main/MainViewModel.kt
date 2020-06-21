@@ -13,6 +13,7 @@ val viewModelModule = module {
 class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
 
     private val page = MutableLiveData<Int>()
+    private val lastPage = 500
 
     init {
         page.value = 1
@@ -30,7 +31,9 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
     }
 
     fun nextPages() {
-        page.value = page.value?.plus(1)
+        // Here may be problems with poor internet quality, need error checking when receiving data
+        // for repeat request
+        if (page.value != lastPage) page.value = page.value?.plus(1)
     }
 
 }

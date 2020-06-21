@@ -71,11 +71,11 @@ class PostItem(private val post: Post) : Item<GroupieViewHolder>() {
                 repeatLikeAnimation()
             }
         }
-
     }
 
 }
 
+// Maybe should combine this into one item with PostItem
 class AdItem : Item<GroupieViewHolder>() {
 
     override fun getLayout() = R.layout.item_post
@@ -91,10 +91,36 @@ class AdItem : Item<GroupieViewHolder>() {
             item_post_date.text = context.getString(R.string.date)
             item_post_liked.liked(context)
             item_post_ad.visibility = View.VISIBLE
+            item_post_collect.setOnClickListener { collectAnimation() }
+            item_post_image.setOnClickListener { bigLikeAnimation() }
+            item_post_like.setOnClickListener {
+                (it as ImageView).iconAnimation(R.drawable.ic_like, R.drawable.ic_like_fill)
+            }
             item_post_caption.caption(
                 context.getString(R.string.kotlin),
                 context.getString(R.string.caption)
             )
+        }
+    }
+
+    private fun View.collectAnimation() {
+        item_post_collect_image.insertDrawable(R.drawable.ad_logo)
+        (item_post_collect as ImageView).iconAnimation(
+            R.drawable.ic_collect, R.drawable.ic_collect_fill
+        )
+        val dp = if (item_post_collect.tag == context.getString(R.string.ic_tag_border)) 0 else 38
+        item_post_collection.translateY(dp)
+    }
+
+    private fun View.bigLikeAnimation() {
+        item_post_big_like.alpha = 0.8f
+        (item_post_big_like.drawable as AnimatedVectorDrawable).start()
+        (item_post_like as ImageView).run{
+            if (item_post_like.tag == context.getString(R.string.ic_tag_border)) {
+                iconAnimation(R.drawable.ic_like, R.drawable.ic_like_fill)
+            } else {
+                repeatLikeAnimation()
+            }
         }
     }
 
